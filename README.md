@@ -21,7 +21,7 @@ You can also run application with path parameter to xml file. The file has to ha
 structure, or it will not work!
  
     <phoneBook>
-        <ID_MAX>3</ID_MAX>
+        <ID_MAX>0</ID_MAX>
         <contacts/>
     </phoneBook>
 
