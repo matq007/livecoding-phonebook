@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
 
     if (argc == 1) {
 
-        phoneBookFileName = "/Users/matq007/Projects/Github/livecoding-phoneBook/phoneBook.xml";
+        phoneBookFileName = "phoneBook.xml";
 
     } else if (argc == 2) {
 
