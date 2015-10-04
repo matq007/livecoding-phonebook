@@ -36,8 +36,7 @@ Application start with printing menu options:
     [6] Delete contact
     [7] Quit
 
-Saving will be always performed when exiting application, so don't forget to use choice 7, otherwise your data
-will not be stored! 
+Saving will be always performed when exiting application. 
 
 ### TODO:
 
