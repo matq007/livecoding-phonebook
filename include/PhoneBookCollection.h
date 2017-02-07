@@ -5,7 +5,6 @@
 #ifndef LIVECODING_PHONEBOOK_PHONEBOOKCOLLECTION_H
 #define LIVECODING_PHONEBOOK_PHONEBOOKCOLLECTION_H
 
-#include <iostream>
 #include <vector>
 #include <map>
 #include <regex>
@@ -31,7 +30,7 @@ public:
     void add(Contact person);
     void edit(unsigned int index);
     void remove(unsigned int index);
-    void show();
+    void show() const;
     bool verifyIndex(unsigned int index);
 
     std::map<unsigned int, Contact> search(std::string pattern);

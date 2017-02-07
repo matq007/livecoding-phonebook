@@ -3,11 +3,11 @@
 //
 
 #include "PhoneBook.h"
+#include <iostream>
+#include <PhoneBookParser.h>
 
-PhoneBook::PhoneBook(std::string phoneBookFileName) {
-
-    this->phoneBookFileName = phoneBookFileName;
-
+PhoneBook::PhoneBook(const std::string &phoneBookFileName)
+        : phoneBookFileName(phoneBookFileName) {
 }
 
 /**
@@ -74,7 +74,7 @@ void PhoneBook::createContact() {
     contact.setUpdatedAt(addedAt);
 
     if (!contact.validate()) {
-        std::cout << "[ERROR]: Contact not created, in createContact() method" <<std::endl;
+        std::cout << "[ERROR]: Contact not created, in createContact() method" << std::endl;
     }
 
     this->phoneBookList.setMaxID(id);
@@ -83,10 +83,11 @@ void PhoneBook::createContact() {
     std::cout << "[INFO]: Contact added" << std::endl;
 
 }
+
 /**
  * Print all contacts
  */
-void PhoneBook::show() {
+void PhoneBook::show() const {
 
     this->phoneBookList.show();
 
@@ -144,12 +145,12 @@ unsigned int PhoneBook::search() {
 
     std::map<unsigned int, Contact> searchResult = this->phoneBookList.search(input);
 
-    for(std::map<unsigned int, Contact>::iterator it = searchResult.begin(); it != searchResult.end(); ++it) {
+    for (std::map<unsigned int, Contact>::iterator it = searchResult.begin(); it != searchResult.end(); ++it) {
 
         std::cout << "[" << it->first << "]: "
-        << it->second.getName() << " " << it->second.getSurname()
-        << " | " << it->second.getPhoneHome() << " | " << it->second.getPhoneCell()
-        << std::endl;
+                  << it->second.getName() << " " << it->second.getSurname()
+                  << " | " << it->second.getPhoneHome() << " | " << it->second.getPhoneCell()
+                  << std::endl;
 
     }
 

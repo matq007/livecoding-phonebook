@@ -5,9 +5,6 @@
 #ifndef LIVECODING_PHONEBOOK_PARSER_H
 #define LIVECODING_PHONEBOOK_PARSER_H
 
-#include <iostream>
-#include <fstream>
-#include <cstdlib>
 #include "tinyxml2.h"
 #include "PhoneBookCollection.h"
 

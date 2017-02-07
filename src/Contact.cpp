@@ -9,7 +9,7 @@ Contact::Contact() {
 
 }
 
-void Contact::prettyPrint() {
+void Contact::prettyPrint() const {
 
     char buff[20];
 

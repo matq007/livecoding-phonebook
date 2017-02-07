@@ -31,7 +31,7 @@ private:
 public:
 
     Contact();
-    void prettyPrint();
+    void prettyPrint() const;
     bool validate();
 
     void setID(unsigned int id);

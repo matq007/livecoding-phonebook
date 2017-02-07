@@ -3,6 +3,7 @@
 //
 
 #include "PhoneBookCollection.h"
+#include <iostream>
 
 PhoneBookCollection::PhoneBookCollection() {
 
@@ -22,7 +23,7 @@ void PhoneBookCollection::setMaxID(int id) {
     this->maxID = id;
 }
 
-void PhoneBookCollection::show() {
+void PhoneBookCollection::show() const {
 
     unsigned long size = this->phoneBook.size();
 

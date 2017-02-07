@@ -5,10 +5,7 @@
 #ifndef LIVECODING_PHONEBOOK_PHONEBOOK_H
 #define LIVECODING_PHONEBOOK_PHONEBOOK_H
 
-#include <iostream>
-#include <map>
 #include "PhoneBookCollection.h"
-#include "PhoneBookParser.h"
 
 class PhoneBook {
 
@@ -19,14 +16,14 @@ private:
 
 public:
 
-    PhoneBook(std::string phoneBookFileName);
+    PhoneBook(const std::string& phoneBookFileName);
     void load();
     void save();
 
     void createContact();
     void edit();
     void remove();
-    void show();
+    void show() const;
     void info();
     unsigned int search();
 
