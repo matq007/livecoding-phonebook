@@ -17,10 +17,10 @@ private:
 
 public:
 
-    PhoneBookParser(std::string phoneBookFileName);
+    PhoneBookParser(const std::string& phoneBookFileName);
 
     void load();
-    bool exists();
+    bool exists() const;
     void createXML();
     unsigned int getMaxID();
 

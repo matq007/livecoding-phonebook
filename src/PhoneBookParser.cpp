@@ -6,15 +6,14 @@
 #include <iostream>
 #include <fstream>
 
-PhoneBookParser::PhoneBookParser(std::string phoneBookFileName) {
-
-    this->phoneBookFileName  = phoneBookFileName;
+PhoneBookParser::PhoneBookParser(const std::string &phoneBookFileName)
+        : phoneBookFileName(phoneBookFileName) {
 
 }
 
 void PhoneBookParser::load() {
 
-    if(this->exists()) {
+    if (this->exists()) {
 
         std::cout << "[INFO]: Loading XML file" << std::endl;
 
@@ -36,7 +35,7 @@ void PhoneBookParser::load() {
  * Checks if XML File already exists
  * @return true if file exists
  */
-bool PhoneBookParser::exists() {
+bool PhoneBookParser::exists() const {
 
     std::ifstream infile(this->phoneBookFileName);
     return infile.good();
@@ -69,27 +68,27 @@ void PhoneBookParser::createXML() {
  */
 PhoneBookCollection PhoneBookParser::loadDataFromXML() {
 
-    tinyxml2::XMLNode* root = this->xml.FirstChild();
+    tinyxml2::XMLNode *root = this->xml.FirstChild();
     PhoneBookCollection phoneBookList;
 
     phoneBookList.setMaxID(this->getMaxID());
 
     if (root != nullptr) {
 
-        tinyxml2::XMLElement* contactsElement = root->FirstChildElement("contacts");
-        tinyxml2::XMLElement* contactElement = contactsElement->FirstChildElement("contact");
+        tinyxml2::XMLElement *contactsElement = root->FirstChildElement("contacts");
+        tinyxml2::XMLElement *contactElement = contactsElement->FirstChildElement("contact");
 
-        while(contactElement != nullptr) {
+        while (contactElement != nullptr) {
 
             int _id;
             contactElement->QueryIntAttribute("id", &_id);
 
             int _addedAt;
-            tinyxml2::XMLElement* addedElement = contactElement->FirstChildElement("addedAt");
+            tinyxml2::XMLElement *addedElement = contactElement->FirstChildElement("addedAt");
             addedElement->QueryIntText(&_addedAt);
 
             int _updatedAt;
-            tinyxml2::XMLElement* updatedElement = contactElement->FirstChildElement("updatedAt");
+            tinyxml2::XMLElement *updatedElement = contactElement->FirstChildElement("updatedAt");
             updatedElement->QueryIntText(&_updatedAt);
 
             Contact tmpContact;
@@ -105,8 +104,8 @@ PhoneBookCollection PhoneBookParser::loadDataFromXML() {
             tmpContact.setPhoneCell(contactElement->FirstChildElement("cell")->GetText());
 
 
-            tmpContact.setAddedAt( (time_t) _addedAt);
-            tmpContact.setUpdatedAt( (time_t) _updatedAt);
+            tmpContact.setAddedAt((time_t) _addedAt);
+            tmpContact.setUpdatedAt((time_t) _updatedAt);
 
             phoneBookList.add(tmpContact);
 
@@ -151,70 +150,70 @@ void PhoneBookParser::store(PhoneBookCollection phoneBookList) {
     pRoot->InsertEndChild(idElement);
 
     // CONTACTS ELEMENT
-    tinyxml2::XMLElement* contactsElement = this->xml.NewElement("contacts");
+    tinyxml2::XMLElement *contactsElement = this->xml.NewElement("contacts");
     pRoot->InsertEndChild(contactsElement);
 
     std::vector<Contact> contacts = phoneBookList.getPhoneBook();
 
-    for (unsigned long i = 0; i < contacts.size(); i ++) {
+    for (unsigned long i = 0; i < contacts.size(); i++) {
 
         // CONTACT ELEMENT
-        tinyxml2::XMLElement* contactElement = this->xml.NewElement("contact");
+        tinyxml2::XMLElement *contactElement = this->xml.NewElement("contact");
         contactElement->SetAttribute("id", contacts[i].getID());
         pRoot->InsertEndChild(contactElement);
 
         // NAME
-        tinyxml2::XMLElement* nameElement = this->xml.NewElement("name");
+        tinyxml2::XMLElement *nameElement = this->xml.NewElement("name");
         nameElement->SetText(contacts.at(i).getName().c_str());
         contactElement->InsertEndChild(nameElement);
 
         // MIDDLENAME
-        tinyxml2::XMLElement* midElement = this->xml.NewElement("middlename");
+        tinyxml2::XMLElement *midElement = this->xml.NewElement("middlename");
         midElement->SetText(contacts.at(i).getMiddleName().c_str());
         contactElement->InsertEndChild(midElement);
 
         // SURNAME
-        tinyxml2::XMLElement* surElement = this->xml.NewElement("surname");
+        tinyxml2::XMLElement *surElement = this->xml.NewElement("surname");
         surElement->SetText(contacts.at(i).getSurname().c_str());
         contactElement->InsertEndChild(surElement);
 
         // TITLE
-        tinyxml2::XMLElement* titleElement = this->xml.NewElement("title");
+        tinyxml2::XMLElement *titleElement = this->xml.NewElement("title");
         titleElement->SetText(contacts.at(i).getTitle().c_str());
         contactElement->InsertEndChild(titleElement);
 
         // DATE OF BIRTH
-        tinyxml2::XMLElement* birthElement = this->xml.NewElement("dateOfBirth");
+        tinyxml2::XMLElement *birthElement = this->xml.NewElement("dateOfBirth");
         birthElement->SetText(contacts.at(i).getDateOfBirth().c_str());
         contactElement->InsertEndChild(birthElement);
 
         // STREET
-        tinyxml2::XMLElement* streetElement = this->xml.NewElement("street");
+        tinyxml2::XMLElement *streetElement = this->xml.NewElement("street");
         streetElement->SetText(contacts.at(i).getStreet().c_str());
         contactElement->InsertEndChild(streetElement);
 
         // CITY
-        tinyxml2::XMLElement* cityElement = this->xml.NewElement("city");
+        tinyxml2::XMLElement *cityElement = this->xml.NewElement("city");
         cityElement->SetText(contacts.at(i).getCity().c_str());
         contactElement->InsertEndChild(cityElement);
 
         // PHONE HOME
-        tinyxml2::XMLElement* pHoneElement = this->xml.NewElement("home");
+        tinyxml2::XMLElement *pHoneElement = this->xml.NewElement("home");
         pHoneElement->SetText(contacts.at(i).getPhoneHome().c_str());
         contactElement->InsertEndChild(pHoneElement);
 
         // CELL HOME
-        tinyxml2::XMLElement* pCellElement = this->xml.NewElement("cell");
+        tinyxml2::XMLElement *pCellElement = this->xml.NewElement("cell");
         pCellElement->SetText(contacts.at(i).getPhoneCell().c_str());
         contactElement->InsertEndChild(pCellElement);
 
         // ADDED AT
-        tinyxml2::XMLElement* addedAtElement = this->xml.NewElement("addedAt");
+        tinyxml2::XMLElement *addedAtElement = this->xml.NewElement("addedAt");
         addedAtElement->SetText((int) contacts.at(i).getAddedAt());
         contactElement->InsertEndChild(addedAtElement);
 
         // UPDATED AT
-        tinyxml2::XMLElement* updatedAtElement = this->xml.NewElement("updatedAt");
+        tinyxml2::XMLElement *updatedAtElement = this->xml.NewElement("updatedAt");
         updatedAtElement->SetText((int) contacts.at(i).getUpdatedAt());
         contactElement->InsertEndChild(updatedAtElement);
 

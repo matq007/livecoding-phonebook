@@ -15,7 +15,6 @@ int main(int argc, char** argv) {
     cout << "Welcome to Phonebook application v 0.1" << endl;
     string phoneBookFileName;
 
-
     if (argc == 1) {
 
         phoneBookFileName = "phoneBook.xml";

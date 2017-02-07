@@ -22,18 +22,18 @@ public:
 
     PhoneBookCollection();
     std::vector<Contact> getPhoneBook();
-    Contact get(unsigned int index);
+    Contact get(unsigned int index) const;
 
     void setMaxID(int id);
     int getMaxID();
 
-    void add(Contact person);
+    void add(const Contact& person);
     void edit(unsigned int index);
     void remove(unsigned int index);
     void show() const;
     bool verifyIndex(unsigned int index);
 
-    std::map<unsigned int, Contact> search(std::string pattern);
+    std::map<unsigned int, Contact> search(const std::string& pattern);
 };
 
 #endif //LIVECODING_PHONEBOOK_PHONEBOOKCOLLECTION_H
