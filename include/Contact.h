@@ -7,7 +7,6 @@
 
 #endif //LIVECODING_PHONEBOOK_PERSON_H
 
-#include <iostream>
 #include <string>
 #include <ctime>
 #include <regex>
@@ -36,29 +35,29 @@ public:
     bool validate();
 
     void setID(unsigned int id);
-    void setName(std::string name);
-    void setMiddleName(std::string middleName);
-    void setSurname(std::string surname);
-    void setTitle(std::string title);
-    void setDateOfBirth(std::string dateOfBirth);
-    void setStreet(std::string street);
-    void setCity(std::string city);
-    void setPhoneHome(std::string number);
-    void setPhoneCell(std::string number);
+    void setName(const std::string& name);
+    void setMiddleName(const std::string& middleName);
+    void setSurname(const std::string& surname);
+    void setTitle(const std::string& title);
+    void setDateOfBirth(const std::string& dateOfBirth);
+    void setStreet(const std::string& street);
+    void setCity(const std::string& city);
+    void setPhoneHome(const std::string& number);
+    void setPhoneCell(const std::string& number);
     void setAddedAt(time_t addedAt);
     void setUpdatedAt(time_t updatedAt);
 
-    unsigned int getID();
-    std::string getName();
-    std::string getMiddleName();
-    std::string getSurname();
-    std::string getTitle();
-    std::string getDateOfBirth();
-    std::string getStreet();
-    std::string getCity();
-    std::string getPhoneHome();
-    std::string getPhoneCell();
-    time_t getAddedAt();
-    time_t getUpdatedAt();
+    unsigned int getID() const;
+    std::string getName() const;
+    std::string getMiddleName() const;
+    std::string getSurname() const;
+    std::string getTitle() const;
+    std::string getDateOfBirth() const;
+    std::string getStreet() const;
+    std::string getCity() const;
+    std::string getPhoneHome() const;
+    std::string getPhoneCell() const;
+    time_t getAddedAt() const;
+    time_t getUpdatedAt() const;
 
 };
