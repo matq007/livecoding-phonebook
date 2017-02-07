@@ -8,7 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
-#include "../include/tinyxml2/tinyxml2.h"
+#include "tinyxml2.h"
 #include "PhoneBookCollection.h"
 
 class PhoneBookParser {

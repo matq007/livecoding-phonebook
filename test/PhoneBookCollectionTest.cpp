@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "gtest/gtest.h"
-#include "../src/PhoneBookCollection.h"
+#include "PhoneBookCollection.h"
 
 class PhoneBookCollectionTest : public ::testing::Test {
 

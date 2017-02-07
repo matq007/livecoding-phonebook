@@ -1,16 +1,20 @@
 cmake_minimum_required(VERSION 3.1)
 
+set(CMAKE_CXX_STANDARD 14)
+
 set(PROJECT_NAME livecoding-phonebook)
 project(${PROJECT_NAME})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pedantic -Wall -Wextra")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic -Wall -Wextra")
 
-set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/include)
-add_subdirectory(${COMMON_INCLUDES}/gtest-1.7.0/)
+include_directories(include)
 
-add_subdirectory(src)
-add_subdirectory(test)
+set(SOURCES src/app.cpp src/Contact.cpp src/PhoneBook.cpp src/PhoneBookCollection.cpp src/PhoneBookParser.cpp)
+
+add_executable(${PROJECT_NAME} ${SOURCES} src/main.cpp)
+add_executable(${PROJECT_NAME}-test ${SOURCES} test/ContactTest.cpp test/PhoneBookCollectionTest.cpp)
+
+target_link_libraries(${PROJECT_NAME} tinyxml2)
+target_link_libraries(${PROJECT_NAME}-test tinyxml2 gtest_main)
 
 enable_testing()
-
-add_test(MyUnitTests unitTest)
