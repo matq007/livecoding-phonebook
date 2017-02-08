@@ -17,13 +17,13 @@ addons:
       - g++-5
       - clang-3.6
 
-install: sudo apt-get install -y libboost-all-dev libgtest-dev
+install: sudo apt-get install -y libboost-all-dev libgtest-dev cmake
 
 before_srcipt:
   - cd /usr/src/gtest
-  - sudo cmake CMakeLists.txt
+  - sudo cmake .
   - sudo make
-  # copy or symlink libgtest.a and libgtest_main.a to your /usr/lib folder
+  - sudo mv libg* /usr/lib/
   - sudo cp *.a /usr/lib
 
 script: 
