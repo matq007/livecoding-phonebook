@@ -5,6 +5,11 @@ set(CMAKE_CXX_STANDARD 14)
 set(PROJECT_NAME livecoding-phonebook)
 project(${PROJECT_NAME})
 
+
+# Locate GTest
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic -Wall -Wextra")
 
 include_directories(include)
@@ -15,6 +20,6 @@ add_executable(${PROJECT_NAME} ${SOURCES} src/main.cpp)
 add_executable(${PROJECT_NAME}-test ${SOURCES} test/ContactTest.cpp test/PhoneBookCollectionTest.cpp)
 
 target_link_libraries(${PROJECT_NAME})
-target_link_libraries(${PROJECT_NAME}-test gtest_main)
+target_link_libraries(${PROJECT_NAME}-test ${GTEST_LIBRARIES})
 
 enable_testing()
