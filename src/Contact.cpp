@@ -144,14 +144,14 @@ bool Contact::validate() {
 
     std::regex patternDayOfBirth("\\d{2}[\\//]\\d{2}[\\//]\\d{4}");
     if (!std::regex_match(this->dateOfBirth, patternDayOfBirth)) {
-        std::cout << "\t [WARNING]: Day of birth is not in correct format DD/MM/YYYY" << std::endl;
+//        std::cout << "\t [WARNING]: Day of birth is not in correct format DD/MM/YYYY" << std::endl;
         validation = false;
     }
 
     if (this->phoneCell != "") {
         std::regex patterNumber("^\\+?\\d*$");
         if (!std::regex_match(this->phoneCell, patterNumber)) {
-            std::cout << "\t [WARNING]: Cell phone number is not in correct format number" << std::endl;
+//            std::cout << "\t [WARNING]: Cell phone number is not in correct format number" << std::endl;
             validation = false;
         }
     }
@@ -159,7 +159,7 @@ bool Contact::validate() {
     if (this->phoneHome != "") {
         std::regex patterNumber("^\\+?\\d*$");
         if (!std::regex_match(this->phoneHome, patterNumber)) {
-            std::cout << "\t [WARNING]: Home phone number is not in correct format number" << std::endl;
+//            std::cout << "\t [WARNING]: Home phone number is not in correct format number" << std::endl;
             validation = false;
         }
     }
