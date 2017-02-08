@@ -40,6 +40,9 @@ Saving will be always performed when exiting application.
 
 ### TODO:
 
+- give meaningful names to classes
+- const
+- no unnecessary copying and moving
 - verify XML File structure
 - user already exists method
 - edit get() in PhoneBookCollection

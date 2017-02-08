@@ -3,6 +3,7 @@
 //
 
 #include "PhoneBookCollection.h"
+#include <iostream>
 
 PhoneBookCollection::PhoneBookCollection() {
 
@@ -22,7 +23,7 @@ void PhoneBookCollection::setMaxID(int id) {
     this->maxID = id;
 }
 
-void PhoneBookCollection::show() {
+void PhoneBookCollection::show() const {
 
     unsigned long size = this->phoneBook.size();
 
@@ -30,7 +31,7 @@ void PhoneBookCollection::show() {
         std::cout << "[INFO]: No contacts found" << std::endl;
     } else {
         for(unsigned long i = 0; i < size; i++) {
-            this->phoneBook.at(i).prettyPrint();
+            this->phoneBook[i].prettyPrint();
         }
     }
 }
@@ -39,13 +40,13 @@ void PhoneBookCollection::show() {
  * Returns object (contact) from vector
  * @return Contact
  */
-Contact PhoneBookCollection::get(unsigned int index) {
+Contact PhoneBookCollection::get(unsigned int index) const {
 
-    return this->phoneBook.at(index);
+    return this->phoneBook[index];
 
 }
 
-void PhoneBookCollection::add(Contact person) {
+void PhoneBookCollection::add(const Contact& person) {
 
     this->phoneBook.push_back(person);
 }
@@ -117,17 +118,17 @@ bool PhoneBookCollection::verifyIndex(unsigned int index) {
  * Returns search result from vector
  * @return <INDEX_NUMBER, CONTACT>
  */
-std::map<unsigned int, Contact> PhoneBookCollection::search(std::string pattern) {
+std::map<unsigned int, Contact> PhoneBookCollection::search(const std::string& pattern) {
 
-    std::map<unsigned int, Contact> searchResult = std::map<unsigned int, Contact>();
+    std::map<unsigned int, Contact> searchResult;
 
     for(unsigned long index = 0; index < this->phoneBook.size(); index++) {
 
         if(
-           boost::contains(boost::to_lower_copy(this->phoneBook.at(index).getName()), pattern) ||
-           boost::contains(boost::to_lower_copy(this->phoneBook.at(index).getSurname()), pattern) ||
-           boost::contains(this->phoneBook.at(index).getPhoneCell(), pattern) ||
-           boost::contains(this->phoneBook.at(index).getPhoneHome(), pattern)
+           boost::contains(boost::to_lower_copy(this->phoneBook[index].getName()), pattern) ||
+           boost::contains(boost::to_lower_copy(this->phoneBook[index].getSurname()), pattern) ||
+           boost::contains(this->phoneBook[index].getPhoneCell(), pattern) ||
+           boost::contains(this->phoneBook[index].getPhoneHome(), pattern)
         ) {
 
             searchResult.insert( std::pair<unsigned int, Contact>(index, this->phoneBook[index]) );

@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include "gtest/gtest.h"
-#include "../src/Contact.h"
+#include "Contact.h"
 
 class ContactTest : public ::testing::Test {
 

@@ -3,12 +3,13 @@
 //
 
 #include "Contact.h"
+#include <iostream>
 
 Contact::Contact() {
 
 }
 
-void Contact::prettyPrint() {
+void Contact::prettyPrint() const {
 
     char buff[20];
 
@@ -41,39 +42,39 @@ void Contact::setID(unsigned int id) {
     }
 }
 
-void Contact::setName(std::string name) {
+void Contact::setName(const std::string& name) {
     this->name = name;
 }
 
-void Contact::setMiddleName(std::string middleName) {
+void Contact::setMiddleName(const std::string& middleName) {
     this->middleName = middleName;
 }
 
-void Contact::setSurname(std::string surname) {
+void Contact::setSurname(const std::string& surname) {
     this->surname = surname;
 }
 
-void Contact::setTitle(std::string title) {
+void Contact::setTitle(const std::string& title) {
     this->title = title;
 }
 
-void Contact::setDateOfBirth(std::string dateOfBirth) {
+void Contact::setDateOfBirth(const std::string& dateOfBirth) {
     this->dateOfBirth = dateOfBirth;
 }
 
-void Contact::setStreet(std::string street) {
+void Contact::setStreet(const std::string& street) {
     this->street = street;
 }
 
-void Contact::setCity(std::string city) {
+void Contact::setCity(const std::string& city) {
     this->city = city;
 }
 
-void Contact::setPhoneHome(std::string number) {
+void Contact::setPhoneHome(const std::string& number) {
     this->phoneHome = number;
 }
 
-void Contact::setPhoneCell(std::string number) {
+void Contact::setPhoneCell(const std::string& number) {
     this->phoneCell = number;
 }
 
@@ -84,51 +85,51 @@ void Contact::setUpdatedAt(time_t updatedAt) {
     this->updatedAt = updatedAt;
 }
 
-unsigned int Contact::getID() {
+unsigned int Contact::getID() const {
     return this->id;
 }
 
-std::string Contact::getName() {
+std::string Contact::getName() const {
     return this->name;
 }
 
-std::string Contact::getMiddleName() {
+std::string Contact::getMiddleName() const {
     return this->middleName;
 }
 
-std::string Contact::getSurname() {
+std::string Contact::getSurname() const {
     return this->surname;
 }
 
-std::string Contact::getTitle() {
+std::string Contact::getTitle() const {
     return this->title;
 }
 
-std::string Contact::getDateOfBirth() {
+std::string Contact::getDateOfBirth() const {
     return this->dateOfBirth;
 }
 
-std::string Contact::getStreet() {
+std::string Contact::getStreet() const {
     return this->street;
 }
 
-std::string Contact::getCity() {
+std::string Contact::getCity() const {
     return this->city;
 }
 
-std::string Contact::getPhoneHome() {
+std::string Contact::getPhoneHome() const {
     return this->phoneHome;
 }
 
-std::string Contact::getPhoneCell() {
+std::string Contact::getPhoneCell() const {
     return this->phoneCell;
 }
 
-time_t Contact::getAddedAt() {
+time_t Contact::getAddedAt() const {
     return this->addedAt;
 }
 
-time_t Contact::getUpdatedAt() {
+time_t Contact::getUpdatedAt() const {
     return this->updatedAt;
 }
 

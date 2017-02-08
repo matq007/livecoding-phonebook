@@ -3,6 +3,7 @@
 //
 
 #include "app.h"
+#include <iostream>
 
 void menu(PhoneBook phoneBook) {
 
@@ -13,7 +14,8 @@ void menu(PhoneBook phoneBook) {
 
         std::cout << "> ";
 
-        getline(std::cin, input);
+//        getline(std::cin, input);
+        std::cin >> input;
 
         int option = atoi(input.c_str());
 
@@ -51,7 +53,8 @@ void quit(PhoneBook phoneBook) {
 
     std::string answer;
     std::cout << "Do you want to save changes? [Y/N]: ";
-    std::getline(std::cin, answer);
+//    std::getline(std::cin, answer);
+    std::cin >> answer;
 
     if (boost::to_lower_copy(answer) == "y") {
         std::cout << "[INFO]: Saving phoneBook";
