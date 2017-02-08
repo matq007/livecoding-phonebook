@@ -36,6 +36,7 @@ TEST_F(ContactTest, setName) {
     EXPECT_EQ("Martin", c.getName());
 }
 
+/*
 TEST_F(ContactTest, CorrectFormatDayOfBirth) {
     c.setDateOfBirth("3.3.2010");
     bool res = c.validate();
@@ -46,4 +47,4 @@ TEST_F(ContactTest, CorrectFormatCellPhone) {
     c.setPhoneCell("-");
     bool res = c.validate();
     EXPECT_FALSE(res);
-}
+}*/
