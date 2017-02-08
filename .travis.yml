@@ -1,7 +1,10 @@
 sudo: required
 dist: trusty
-  
-install: sudo apt-get install -y libgtest-dev libtinyxml2-dev libboost-all-dev
+
+before_install:
+- sudo apt-get install -y libgtest-dev
+
+install: sudo apt-get install -y libboost-all-dev
   
 compiler:
   - gcc
