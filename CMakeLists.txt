@@ -15,6 +15,6 @@ add_executable(${PROJECT_NAME} ${SOURCES} src/main.cpp)
 add_executable(${PROJECT_NAME}-test ${SOURCES} test/ContactTest.cpp test/PhoneBookCollectionTest.cpp)
 
 target_link_libraries(${PROJECT_NAME})
-target_link_libraries(${PROJECT_NAME}-test gtest gtest_main)
+target_link_libraries(${PROJECT_NAME}-test gtest gtest_main pthread)
 
 enable_testing()
