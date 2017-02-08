@@ -2,10 +2,7 @@ language: cpp
 sudo: required
 dist: trusty
 
-before_install:
-- sudo apt-get install -y libgtest-dev
-
-install: sudo apt-get install -y libboost-all-dev
+install: sudo apt-get install -y libboost-all-dev libgtest-dev
   
 compiler:
   - gcc
