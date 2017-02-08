@@ -23,7 +23,7 @@ before_script:
   - cd /usr/src/gtest
   - sudo cmake .
   - sudo make
-  - sudo mv libg* /usr/lib/
+  #- sudo mv libg* /usr/lib/
 
 script: 
   - cmake . && make && ./test/livecoding-phonebook-test  
