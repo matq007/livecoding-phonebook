@@ -141,8 +141,7 @@ unsigned int PhoneBook::search() {
 
     std::string input;
     std::cout << "Type name, surname or number to find the contact: ";
-//    std::getline(std::cin, input);
-    std::cin >> input;
+    std::getline(std::cin, input);
 
     std::map<unsigned int, Contact> searchResult = this->phoneBookList.search(input);
 
@@ -158,8 +157,7 @@ unsigned int PhoneBook::search() {
     // pick choice
     std::string index;
     std::cout << "Choose number: ";
-//    getline(std::cin, index);
-    std::cin >> index;
+    getline(std::cin, index);
 
     return (unsigned int) atoi(index.c_str());
 
