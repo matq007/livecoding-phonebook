@@ -2,7 +2,7 @@ language: cpp
 sudo: required
 dist: trusty
 
-install: apt-get install -y libgtest-dev tinyxml2 libboost-all-dev
+install: sudo apt-get install -y libgtest-dev tinyxml2 libboost-all-dev
 
 compiler:
   - gcc
