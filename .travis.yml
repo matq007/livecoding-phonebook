@@ -20,4 +20,4 @@ addons:
     - clang-3.6
 
 script: 
-  - cmake . && make && ./unitTest  
+  - cmake . && make && ./test/unitTest  
