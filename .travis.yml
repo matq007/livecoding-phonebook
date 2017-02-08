@@ -20,4 +20,4 @@ addons:
     - clang-3.6
 
 script: 
-  - cmake . && make && ./test/unitTest  
+  - cmake . && make && ./test/livecoding-phonebook-test  
