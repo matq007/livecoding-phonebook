@@ -19,7 +19,7 @@ addons:
 
 install: sudo apt-get install -y libboost-all-dev libgtest-dev cmake
 
-before_srcipt:
+before_script:
   - cd /usr/src/gtest
   - sudo cmake .
   - sudo make
