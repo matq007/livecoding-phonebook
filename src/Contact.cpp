@@ -142,7 +142,7 @@ bool Contact::validate() {
 
     bool validation = true;
 
-    std::regex patternDayOfBirth("\\d{2}[\\//]\\d{2}[\\//]\\d{4}");
+    std::regex patternDayOfBirth("\\d{2}\\//\\d{2}\\//\\d{4}");
     if (!std::regex_match(this->dateOfBirth, patternDayOfBirth)) {
 //        std::cout << "\t [WARNING]: Day of birth is not in correct format DD/MM/YYYY" << std::endl;
         validation = false;
