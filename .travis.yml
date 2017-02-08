@@ -28,4 +28,4 @@ before_script:
   - cd $TRAVIS_BUILD_DIR
 
 script: 
-  - cmake . && make && ./test/livecoding-phonebook-test  
+  - cmake . && make && ./livecoding-phonebook-test
