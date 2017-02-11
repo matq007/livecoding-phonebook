@@ -3,6 +3,7 @@
 //
 
 #include "Contact.h"
+#include "boost/regex.hpp"
 #include <iostream>
 
 Contact::Contact() {
@@ -142,24 +143,21 @@ bool Contact::validate() {
 
     bool validation = true;
 
-    std::regex patternDayOfBirth("\\d{2}[\\//]\\d{2}[\\//]\\d{4}");
-    if (!std::regex_match(this->dateOfBirth, patternDayOfBirth)) {
-//        std::cout << "\t [WARNING]: Day of birth is not in correct format DD/MM/YYYY" << std::endl;
+    boost::regex patternDayOfBirth("\\d{2}[\\//]\\d{2}[\\//]\\d{4}");
+    if (!boost::regex_match(this->phoneHome, patternDayOfBirth)) {
         validation = false;
     }
-
+    
     if (this->phoneCell != "") {
-        std::regex patterNumber("^\\+?\\d*$");
-        if (!std::regex_match(this->phoneCell, patterNumber)) {
-//            std::cout << "\t [WARNING]: Cell phone number is not in correct format number" << std::endl;
+        boost::regex patterNumber("^\\+?\\d*$");
+        if (!boost::regex_match(this->phoneCell, patterNumber)) {
             validation = false;
         }
     }
 
     if (this->phoneHome != "") {
-        std::regex patterNumber("^\\+?\\d*$");
-        if (!std::regex_match(this->phoneHome, patterNumber)) {
-//            std::cout << "\t [WARNING]: Home phone number is not in correct format number" << std::endl;
+        boost::regex patterNumber("^\\+?\\d*$");
+        if (!boost::regex_match(this->phoneHome, patterNumber)) {
             validation = false;
         }
     }

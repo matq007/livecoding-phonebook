@@ -19,8 +19,7 @@ protected:
     // If the constructor and destructor are not enough for setting up
     // and cleaning up each test, you can define the following methods:
     virtual void SetUp() {
-        // Code here will be called immediately after the constructor (right
-        // before each test).
+
     }
 
     virtual void TearDown() {
@@ -29,22 +28,35 @@ protected:
     }
 
     Contact c;
+
 };
 
-TEST_F(ContactTest, setName) {
+TEST_F(ContactTest, CorrectNameSet) {
     c.setName("Martin");
     EXPECT_EQ("Martin", c.getName());
 }
 
-/*
-TEST_F(ContactTest, CorrectFormatDayOfBirth) {
-    c.setDateOfBirth("3.3.2010");
-    bool res = c.validate();
-    EXPECT_FALSE(res);
+TEST_F(ContactTest, CorrectValidation) {
+    EXPECT_FALSE(c.validate());
 }
 
-TEST_F(ContactTest, CorrectFormatCellPhone) {
+TEST_F(ContactTest, ValidationPhoneHomeFail) {
+    c.setDateOfBirth("03/12/2000");
+    c.setPhoneHome("-");
+    c.setPhoneCell("123456");
+    EXPECT_FALSE(c.validate());
+}
+
+TEST_F(ContactTest, ValidationPhoneCellFail) {
+    c.setDateOfBirth("03/12/2000");
+    c.setPhoneHome("123456");
     c.setPhoneCell("-");
-    bool res = c.validate();
-    EXPECT_FALSE(res);
-}*/
+    EXPECT_FALSE(c.validate());
+}
+
+TEST_F(ContactTest, ValidationBirthFormatFail) {
+    c.setDateOfBirth("3.12.2000");
+    c.setPhoneHome("123456");
+    c.setPhoneCell("123456");
+    EXPECT_FALSE(c.validate());
+}
