@@ -1,4 +1,4 @@
-# livecoding-phonebook
+# livecoding-phonebook [![Build Status](https://travis-ci.org/matq007/livecoding-phonebook.svg?branch=master)](https://travis-ci.org/matq007/livecoding-phonebook)
 
 This is an example implementation of command-live based phonebook. Request was posted in [livecoding spreadsheet] 
 (https://docs.google.com/spreadsheets/d/1SJ5YEgBLIApfw7rUGWOKHoJipNHY-5LssE2nT-gVa3I/edit).
@@ -7,12 +7,12 @@ To run application type:
     
     mkdir build
     cd build
-    cmake ..
+    cmake .. && make
 
 I also implemented some dummy unit tests as an example. You can run unit tests simply by 
 running command:
     
-    ./unitTest
+    docker build .
 
 ## About
 
